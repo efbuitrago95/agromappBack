@@ -1,0 +1,41 @@
+{
+    "name": "agromapp-backend",
+    "version": "1.0.0",
+    "description": "Api agromapp",
+    "main": "dist/index.js",
+    "scripts": {
+        "dev:start": "npm-run-all build start",
+        "dev": "nodemon --watch src -e ts,ejs --exec npm run dev:start",
+        "clean": "rimraf dist/*",
+        "tsc": "tsc",
+        "start": "node .",
+        "build": "npm-run-all clean  tsc"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.5.1",
+        "express": "^4.17.1",
+        "express-jwt": "^5.3.1",
+        "knex": "^0.19.4",
+        "method-override": "^2.1.2",
+        "moment": "^2.24.0",
+        "moment-timezone": "^0.5.26",
+        "mysql": "^2.17.1",
+        "mysql2": "^1.7.0",
+        "npm-run-all": "^4.1.5",
+        "objection": "^1.6.11",
+        "objection-soft-delete": "^1.0.7",
+        "objection-softdelete": "^2.0.1"
+    },
+    "devDependencies": {
+        "@types/mysql": "^2.15.7",
+        "@types/node": "^12.11.1",
+        "eslint": "^6.5.1",
+        "eslint-plugin-import": "^2.18.2",
+        "nodemon": "^1.19.4",
+        "ts-node": "^8.4.1",
+        "tslint": "^5.20.0",
+        "typescript": "^3.6.4"
+    }
+}
