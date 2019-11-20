@@ -25,7 +25,7 @@ var countriesModel = /** @class */ (function (_super) {
     }
     Object.defineProperty(countriesModel, "tableName", {
         get: function () {
-            return 'COUNTRIES';
+            return "COUNTRIES";
         },
         enumerable: true,
         configurable: true
@@ -37,8 +37,8 @@ var countriesModel = /** @class */ (function (_super) {
                     relation: objection_1.Model.HasOneRelation,
                     modelClass: languages_model_1.default,
                     join: {
-                        from: 'COUNTRIES.idLanguage',
-                        to: 'LANGUAGES.id'
+                        from: "COUNTRIES.idLanguage",
+                        to: "LANGUAGES.id"
                     }
                 }
             };

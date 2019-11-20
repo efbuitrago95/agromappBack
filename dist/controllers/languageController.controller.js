@@ -40,15 +40,41 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var languages_model_1 = __importDefault(require("../models/languages.model"));
+var utils_1 = require("../utils");
+var numberItems = 2;
 var LanguageController = /** @class */ (function () {
     function LanguageController() {
         var _this = this;
         this.getAll = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+            var querySql;
             return __generator(this, function (_a) {
-                languages_model_1.default.query()
+                querySql = languages_model_1.default.query();
+                if (req.query.search) {
+                    querySql.where("name", "like", "%" + req.query.search + "%");
+                }
+                if (req.query.page) {
+                    querySql.page(Number(req.query.page) - 1, numberItems);
+                }
+                querySql
                     .then(function (data) {
-                    res.status(200).send(data);
-                }).catch(function (error) {
+                    var dataResponse = {};
+                    var paginationData = {};
+                    if (req.query.page) {
+                        paginationData = utils_1.Utils.generatePaging(numberItems, req.query.page, data);
+                        dataResponse = {
+                            results: data.results,
+                            paginationData: paginationData
+                        };
+                    }
+                    else {
+                        dataResponse = {
+                            results: data,
+                            paginationData: paginationData
+                        };
+                    }
+                    res.status(200).send(dataResponse);
+                })
+                    .catch(function (error) {
                     res.status(200).send(error);
                 });
                 return [2 /*return*/];
@@ -56,11 +82,13 @@ var LanguageController = /** @class */ (function () {
         }); };
         this.create = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                languages_model_1.default.query()
+                languages_model_1.default
+                    .query()
                     .insert(req.body)
                     .then(function (data) {
                     res.status(200).send(data);
-                }).catch(function (e) {
+                })
+                    .catch(function (e) {
                     res.status(400).send(e);
                 });
                 return [2 /*return*/];
@@ -68,11 +96,13 @@ var LanguageController = /** @class */ (function () {
         }); };
         this.getById = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                languages_model_1.default.query()
+                languages_model_1.default
+                    .query()
                     .findById(req.params.id)
                     .then(function (data) {
                     res.status(200).send(data);
-                }).catch(function (error) {
+                })
+                    .catch(function (error) {
                     res.status(200).send(error);
                 });
                 return [2 /*return*/];
@@ -80,11 +110,13 @@ var LanguageController = /** @class */ (function () {
         }); };
         this.update = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                languages_model_1.default.query()
+                languages_model_1.default
+                    .query()
                     .patchAndFetchById(req.body.id, req.body)
                     .then(function (res1) {
                     res.status(200).send(res1);
-                }).catch(function (e) {
+                })
+                    .catch(function (e) {
                     res.status(200).send(e);
                 });
                 return [2 /*return*/];
@@ -92,11 +124,13 @@ var LanguageController = /** @class */ (function () {
         }); };
         this.deletedbyId = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                languages_model_1.default.query()
+                languages_model_1.default
+                    .query()
                     .deleteById(req.params.id)
                     .then(function (data) {
                     res.status(200).send(data);
-                }).catch(function (error) {
+                })
+                    .catch(function (error) {
                     res.status(200).send(error);
                 });
                 return [2 /*return*/];

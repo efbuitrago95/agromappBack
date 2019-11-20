@@ -1,7 +1,7 @@
-import {Model} from "objection";
+import { Model } from "objection";
 
 export default class languagesModel extends Model {
-    static get tableName() {
-        return 'LANGUAGES';
-    }
+  static get tableName() {
+    return "LANGUAGES";
+  }
 }

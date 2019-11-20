@@ -21,7 +21,7 @@ var languagesModel = /** @class */ (function (_super) {
     }
     Object.defineProperty(languagesModel, "tableName", {
         get: function () {
-            return 'LANGUAGES';
+            return "LANGUAGES";
         },
         enumerable: true,
         configurable: true

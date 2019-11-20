@@ -46,10 +46,11 @@ var CountriesController = /** @class */ (function () {
         this.getAll = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 countries_model_1.default.query()
-                    .eager('[languages]')
+                    .eager("[languages]")
                     .then(function (data) {
                     res.status(200).send(data);
-                }).catch(function (error) {
+                })
+                    .catch(function (error) {
                     res.status(200).send(error);
                 });
                 return [2 /*return*/];
@@ -61,7 +62,8 @@ var CountriesController = /** @class */ (function () {
                     .insert(req.body)
                     .then(function (data) {
                     res.status(200).send(data);
-                }).catch(function (e) {
+                })
+                    .catch(function (e) {
                     res.status(400).send(e);
                 });
                 return [2 /*return*/];
@@ -70,11 +72,12 @@ var CountriesController = /** @class */ (function () {
         this.getById = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 countries_model_1.default.query()
-                    .eager('[languages]')
+                    .eager("[languages]")
                     .findById(req.params.id)
                     .then(function (data) {
                     res.status(200).send(data);
-                }).catch(function (error) {
+                })
+                    .catch(function (error) {
                     res.status(200).send(error);
                 });
                 return [2 /*return*/];
@@ -86,7 +89,8 @@ var CountriesController = /** @class */ (function () {
                     .patchAndFetchById(req.body.id, req.body)
                     .then(function (res1) {
                     res.status(200).send(res1);
-                }).catch(function (e) {
+                })
+                    .catch(function (e) {
                     res.status(200).send(e);
                 });
                 return [2 /*return*/];
@@ -98,7 +102,8 @@ var CountriesController = /** @class */ (function () {
                     .deleteById(req.params.id)
                     .then(function (data) {
                     res.status(200).send(data);
-                }).catch(function (error) {
+                })
+                    .catch(function (error) {
                     res.status(200).send(error);
                 });
                 return [2 /*return*/];

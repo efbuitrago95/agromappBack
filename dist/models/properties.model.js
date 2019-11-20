@@ -26,7 +26,7 @@ var propertiesModel = /** @class */ (function (_super) {
     }
     Object.defineProperty(propertiesModel, "tableName", {
         get: function () {
-            return 'PROPERTIES';
+            return "PROPERTIES";
         },
         enumerable: true,
         configurable: true
@@ -38,16 +38,16 @@ var propertiesModel = /** @class */ (function (_super) {
                     relation: objection_1.Model.HasManyRelation,
                     modelClass: items_model_1.default,
                     join: {
-                        from: 'PROPERTIES.id',
-                        to: 'ITEMS.idProperty'
+                        from: "PROPERTIES.id",
+                        to: "ITEMS.idProperty"
                     }
                 },
                 languages: {
                     relation: objection_1.Model.HasOneRelation,
                     modelClass: languages_model_1.default,
                     join: {
-                        from: 'PROPERTIES.idLanguage',
-                        to: 'LANGUAGES.id'
+                        from: "PROPERTIES.idLanguage",
+                        to: "LANGUAGES.id"
                     }
                 }
             };
