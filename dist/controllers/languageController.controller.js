@@ -41,7 +41,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var languages_model_1 = __importDefault(require("../models/languages.model"));
 var utils_1 = require("../utils");
-var numberItems = 2;
+var numberItems = 10;
 var LanguageController = /** @class */ (function () {
     function LanguageController() {
         var _this = this;

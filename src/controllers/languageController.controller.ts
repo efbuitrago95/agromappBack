@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import languagesModel from "../models/languages.model";
 import { Utils } from "../utils";
 
-const numberItems = 2;
+const numberItems = 10;
 export default class LanguageController {
   public getAll = async (req: Request, res: Response) => {
     let querySql = languagesModel.query();
