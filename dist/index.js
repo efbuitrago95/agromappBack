@@ -8,6 +8,7 @@ var database_1 = __importDefault(require("./config/database"));
 var users_routes_1 = __importDefault(require("./routes/users.routes"));
 var languages_routes_1 = __importDefault(require("./routes/languages.routes"));
 var countries_routes_1 = __importDefault(require("./routes/countries.routes"));
+var categories_routes_1 = __importDefault(require("./routes/categories.routes"));
 var roles_routes_1 = __importDefault(require("./routes/roles.routes"));
 var roles_users_routes_1 = __importDefault(require("./routes/roles_users.routes"));
 var properties_routes_1 = __importDefault(require("./routes/properties.routes"));
@@ -22,15 +23,16 @@ var app = express_1.default();
 app.use(express_1.default.json());
 // CORS
 app.use(function (req, res, next) {
-    res.header('Content-Type', 'application/json');
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header("Content-Type", "application/json");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method");
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+    res.header("Allow", "GET, POST, OPTIONS, PUT, DELETE");
     next();
 });
 app.set("port", 3000);
 // Routes
+app.use("/api/categories", categories_routes_1.default);
 app.use("/api/languages", languages_routes_1.default);
 app.use("/api/countries", countries_routes_1.default);
 app.use("/api/users", users_routes_1.default);
