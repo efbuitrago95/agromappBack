@@ -40,16 +40,44 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var items_model_1 = __importDefault(require("../models/items.model"));
+var utils_1 = require("../utils");
+var numberItems = 10;
 var ItemsController = /** @class */ (function () {
     function ItemsController() {
         var _this = this;
         this.getAll = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+            var querySql;
             return __generator(this, function (_a) {
-                items_model_1.default.query()
-                    .eager('[crop_items]')
+                querySql = items_model_1.default.query().eager(' [crop_items, properties]');
+                if (req.query.search) {
+                    querySql.where("name", "like", "%" + req.query.search + "%");
+                }
+                if (req.query.page) {
+                    querySql.page(Number(req.query.page) - 1, numberItems);
+                }
+                if (req.query.property) {
+                    querySql.where("idProperty", req.query.property);
+                }
+                querySql
                     .then(function (data) {
-                    res.status(200).send(data);
-                }).catch(function (error) {
+                    var dataResponse = {};
+                    var paginationData = {};
+                    if (req.query.page) {
+                        paginationData = utils_1.Utils.generatePaging(numberItems, req.query.page, data);
+                        dataResponse = {
+                            results: data.results,
+                            paginationData: paginationData
+                        };
+                    }
+                    else {
+                        dataResponse = {
+                            results: data,
+                            paginationData: paginationData
+                        };
+                    }
+                    res.status(200).send(dataResponse);
+                })
+                    .catch(function (error) {
                     res.status(200).send(error);
                 });
                 return [2 /*return*/];
@@ -70,7 +98,7 @@ var ItemsController = /** @class */ (function () {
         this.getById = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 items_model_1.default.query()
-                    .eager('[crop_items]')
+                    .eager('[crop_items,properties]')
                     .findById(req.params.id)
                     .then(function (data) {
                     res.status(200).send(data);

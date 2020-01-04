@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/backendNode.iml" filepath="$PROJECT_DIR$/.idea/backendNode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/agromappBack.iml" filepath="$PROJECT_DIR$/.idea/agromappBack.iml" />
     </modules>
   </component>
 </project>

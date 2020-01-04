@@ -18,6 +18,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var objection_1 = require("objection");
 var crop_items_model_1 = __importDefault(require("./crop_items.model"));
+var properties_model_1 = __importDefault(require("./properties.model"));
 var itemsModel = /** @class */ (function (_super) {
     __extends(itemsModel, _super);
     function itemsModel() {
@@ -39,6 +40,14 @@ var itemsModel = /** @class */ (function (_super) {
                     join: {
                         from: 'ITEMS.id',
                         to: 'CROP_ITEMS.idItem'
+                    }
+                },
+                properties: {
+                    relation: objection_1.Model.HasOneRelation,
+                    modelClass: properties_model_1.default,
+                    join: {
+                        from: 'ITEMS.idProperty',
+                        to: 'PROPERTIES.id'
                     }
                 }
             };
