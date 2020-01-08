@@ -1,53 +1,88 @@
-import {Request, Response} from "express";
+import { Request, Response } from "express";
 import rolesModel from "../models/roles.model";
+import { Utils } from "../utils";
 
+const numberItems = 10;
 export default class RolesController {
-
     public getAll = async (req: Request, res: Response) => {
-        rolesModel.query()
-            .then(data => {
-                res.status(200).send(data);
-            }).catch((error: any) => {
+        let querySql = rolesModel.query();
+        if (req.query.search) {
+            querySql.where("name", "like", `%${req.query.search}%`);
+        }
+        if (req.query.page) {
+            querySql.page(Number(req.query.page) - 1, numberItems);
+        }
+        querySql
+            .then((data: any) => {
+                let dataResponse = {};
+                let paginationData = {};
+                if (req.query.page) {
+                    paginationData = Utils.generatePaging(
+                        numberItems,
+                        req.query.page,
+                        data
+                    );
+                    dataResponse = {
+                        results: data.results,
+                        paginationData: paginationData
+                    };
+                } else {
+                    dataResponse = {
+                        results: data,
+                        paginationData: paginationData
+                    };
+                }
+                res.status(200).send(dataResponse);
+            })
+            .catch((error: any) => {
                 res.status(200).send(error);
             });
     };
 
     public create = async (req: Request, res: Response) => {
-        rolesModel.query()
+        rolesModel
+            .query()
             .insert(req.body)
-            .then((data) => {
+            .then(data => {
                 res.status(200).send(data);
-            }).catch((e: any) => {
+            })
+            .catch((e: any) => {
                 res.status(400).send(e);
             });
     };
 
     public getById = async (req: Request, res: Response) => {
-        rolesModel.query()
+        rolesModel
+            .query()
             .findById(req.params.id)
             .then(data => {
                 res.status(200).send(data);
-            }).catch((error: any) => {
+            })
+            .catch((error: any) => {
                 res.status(200).send(error);
             });
     };
 
     public update = async (req: Request, res: Response) => {
-        rolesModel.query()
+        rolesModel
+            .query()
             .patchAndFetchById(req.body.id, req.body)
             .then(res1 => {
                 res.status(200).send(res1);
-            }).catch((e: any) => {
+            })
+            .catch((e: any) => {
                 res.status(200).send(e);
             });
     };
 
     public deletedbyId = async (req: Request, res: Response) => {
-        rolesModel.query()
+        rolesModel
+            .query()
             .deleteById(req.params.id)
             .then(data => {
                 res.status(200).send(data);
-            }).catch((error: any) => {
+            })
+            .catch((error: any) => {
                 res.status(200).send(error);
             });
     };
