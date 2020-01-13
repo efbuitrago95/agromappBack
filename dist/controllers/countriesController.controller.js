@@ -40,15 +40,42 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var countries_model_1 = __importDefault(require("../models/countries.model"));
+var utils_1 = require("../utils");
+var numberItems = 10;
 var CountriesController = /** @class */ (function () {
     function CountriesController() {
         var _this = this;
         this.getAll = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+            var querySql;
             return __generator(this, function (_a) {
-                countries_model_1.default.query()
-                    .eager("[languages]")
+                querySql = countries_model_1.default.query().eager('languages');
+                if (req.query.search) {
+                    querySql.where("name", "like", "%" + req.query.search + "%");
+                }
+                if (req.query.language) {
+                    querySql.where("idLanguage", req.query.language);
+                }
+                if (req.query.page) {
+                    querySql.page(Number(req.query.page) - 1, numberItems);
+                }
+                querySql
                     .then(function (data) {
-                    res.status(200).send(data);
+                    var dataResponse = {};
+                    var paginationData = {};
+                    if (req.query.page) {
+                        paginationData = utils_1.Utils.generatePaging(numberItems, req.query.page, data);
+                        dataResponse = {
+                            results: data.results,
+                            paginationData: paginationData
+                        };
+                    }
+                    else {
+                        dataResponse = {
+                            results: data,
+                            paginationData: paginationData
+                        };
+                    }
+                    res.status(200).send(dataResponse);
                 })
                     .catch(function (error) {
                     res.status(200).send(error);
