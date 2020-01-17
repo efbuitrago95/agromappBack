@@ -1,13 +1,43 @@
 import {Request, Response} from "express";
 import cropsModel from "../models/crops.model";
-
+import {Utils} from "../utils";
+const numberItems = 10;
 export default class CropsController {
 
     public getAll = async (req: Request, res: Response) => {
-        cropsModel.query()
-            .then(data => {
-                res.status(200).send(data);
-            }).catch((error: any) => {
+        let querySql = cropsModel.query();
+        if (req.query.search) {
+            querySql.where("name", "like", `%${req.query.search}%`);
+        }
+        if (req.query.page) {
+            querySql.page(Number(req.query.page) - 1, numberItems);
+        }
+        if (req.query.language) {
+            querySql.where("idLanguage", req.query.language);
+        }
+        querySql
+            .then((data: any) => {
+                let dataResponse = {};
+                let paginationData = {};
+                if (req.query.page) {
+                    paginationData = Utils.generatePaging(
+                        numberItems,
+                        req.query.page,
+                        data
+                    );
+                    dataResponse = {
+                        results: data.results,
+                        paginationData: paginationData
+                    };
+                } else {
+                    dataResponse = {
+                        results: data,
+                        paginationData: paginationData
+                    };
+                }
+                res.status(200).send(dataResponse);
+            })
+            .catch((error: any) => {
                 res.status(200).send(error);
             });
     };
