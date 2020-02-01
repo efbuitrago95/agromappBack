@@ -113,6 +113,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1580570981229">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1580570981229" />
     <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1580570727638">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -141,10 +145,10 @@
       <screen x="0" y="23" width="1280" height="727" />
     </state>
     <state x="424" y="104" key="RollbackChangesDialog/0.23.1280.727@0.23.1280.727" timestamp="1579921033554" />
-    <state x="275" y="98" key="Vcs.Push.Dialog.v2" timestamp="1580350809038">
+    <state x="275" y="98" key="Vcs.Push.Dialog.v2" timestamp="1580570984843">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="98" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1580350809038" />
+    <state x="275" y="98" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1580570984843" />
     <state x="383" y="156" key="git4idea.merge.GitPullDialog" timestamp="1580267934993">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
