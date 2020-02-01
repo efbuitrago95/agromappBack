@@ -15,6 +15,7 @@ var properties_routes_1 = __importDefault(require("./routes/properties.routes"))
 var items_routes_1 = __importDefault(require("./routes/items.routes"));
 var crop_items_routes_1 = __importDefault(require("./routes/crop_items.routes"));
 var crops_routes_1 = __importDefault(require("./routes/crops.routes"));
+var classifications_routes_1 = __importDefault(require("./routes/classifications.routes"));
 // const objectionSoftDelete = require('objection-softdelete');
 // objectionSoftDelete.register(objection);
 database_1.default();
@@ -42,6 +43,7 @@ app.use("/api/properties", properties_routes_1.default);
 app.use("/api/items", items_routes_1.default);
 app.use("/api/crop_items", crop_items_routes_1.default);
 app.use("/api/crops", crops_routes_1.default);
+app.use("/api/classifications", classifications_routes_1.default);
 app.listen(app.get("port"), function () {
     console.log("Node server running on http://localhost:", app.get("port"));
 });

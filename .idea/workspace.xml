@@ -2,12 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53c14179-cf68-4f25-ac43-9bf422749b4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/classificationsController.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/classifications.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/classifications.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agromappEER.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/agromappEER.mwb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agromappEER.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/agromappEER.mwb.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/categories.model 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/countries.model 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/crop_items.model 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/crops.model 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/items.model 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/languages.model 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/permissions.model 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/roles.model 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/models/roles_users.model 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/routes/categories.routes 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/routes/countries.routes 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/routes/crop_items.routes 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/routes/crops.routes 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/routes/items.routes 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/routes/languages.routes 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/routes/permissions.routes 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/routes/properties.routes 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/routes/roles.routes 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/routes/roles_users.routes 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/routes/users.routes 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="agromappBack" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,7 +59,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../agromapp-angular" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -66,6 +96,16 @@
       <workItem from="1579920015574" duration="1324000" />
       <workItem from="1579921399531" duration="1086000" />
       <workItem from="1579969168504" duration="422000" />
+      <workItem from="1580161888049" duration="1197000" />
+      <workItem from="1580173617543" duration="1210000" />
+      <workItem from="1580257462755" duration="2749000" />
+      <workItem from="1580309642629" duration="16000" />
+      <workItem from="1580309668277" duration="6417000" />
+      <workItem from="1580410306409" duration="8000" />
+      <workItem from="1580410322855" duration="11277000" />
+      <workItem from="1580493488149" duration="17000" />
+      <workItem from="1580493607527" duration="1803000" />
+      <workItem from="1580570700976" duration="225000" />
     </task>
     <servers />
   </component>
@@ -73,6 +113,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1580570727638">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1580570727638" />
     <state width="1259" height="181" key="GridCell.Tab.0.bottom" timestamp="1579936787114">
       <screen x="0" y="23" width="1280" height="727" />
     </state>
@@ -97,5 +141,13 @@
       <screen x="0" y="23" width="1280" height="727" />
     </state>
     <state x="424" y="104" key="RollbackChangesDialog/0.23.1280.727@0.23.1280.727" timestamp="1579921033554" />
+    <state x="275" y="98" key="Vcs.Push.Dialog.v2" timestamp="1580350809038">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="98" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1580350809038" />
+    <state x="383" y="156" key="git4idea.merge.GitPullDialog" timestamp="1580267934993">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="383" y="156" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1580267934993" />
   </component>
 </project>

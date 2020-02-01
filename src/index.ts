@@ -13,6 +13,8 @@ import propertiesRoute from "./routes/properties.routes";
 import itemsRoute from "./routes/items.routes";
 import cropItemsRoute from "./routes/crop_items.routes";
 import cropsRoute from "./routes/crops.routes";
+import classificationsRoute from "./routes/classifications.routes";
+import classificationsModel from "./models/classifications.model";
 
 // const objectionSoftDelete = require('objection-softdelete');
 // objectionSoftDelete.register(objection);
@@ -45,6 +47,7 @@ app.use("/api/properties", propertiesRoute);
 app.use("/api/items", itemsRoute);
 app.use("/api/crop_items", cropItemsRoute);
 app.use("/api/crops", cropsRoute);
+app.use("/api/classifications", classificationsRoute);
 
 app.listen(app.get("port"), function() {
   console.log("Node server running on http://localhost:", app.get("port"));
