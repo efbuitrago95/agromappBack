@@ -14,7 +14,10 @@ import itemsRoute from "./routes/items.routes";
 import cropItemsRoute from "./routes/crop_items.routes";
 import cropsRoute from "./routes/crops.routes";
 import classificationsRoute from "./routes/classifications.routes";
-import classificationsModel from "./models/classifications.model";
+import moonsRoute from './routes/moons.routes';
+import classificationItemsRoute from './routes/classification_Items.routes';
+import moonItemsRoute from './routes/moon_Items.routes';
+import typeMoonsRoute from './routes/type_Moons.routes';
 
 // const objectionSoftDelete = require('objection-softdelete');
 // objectionSoftDelete.register(objection);
@@ -48,6 +51,10 @@ app.use("/api/items", itemsRoute);
 app.use("/api/crop_items", cropItemsRoute);
 app.use("/api/crops", cropsRoute);
 app.use("/api/classifications", classificationsRoute);
+app.use("/api/moons", moonsRoute);
+app.use("/api/moon_items", moonItemsRoute);
+app.use("/api/classification_items", classificationItemsRoute);
+app.use("/api/type_moons", typeMoonsRoute);
 
 app.listen(app.get("port"), function() {
   console.log("Node server running on http://localhost:", app.get("port"));
