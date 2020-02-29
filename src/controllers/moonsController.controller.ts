@@ -5,7 +5,7 @@ const numberItems = 10;
 export default class MoonsController {
 
     public getAll = async (req: Request, res: Response) => {
-        let querySql = moonsModel.query();
+        let querySql = moonsModel.query().eager('[languages, classifications, typeMoons]');
         if (req.query.search) {
             querySql.where("name", "like", `%${req.query.search}%`);
         }
